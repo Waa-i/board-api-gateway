@@ -28,6 +28,11 @@ spring:
           predicates:
             - Path=/api/search/**
 
+        - id: media-service
+          uri: lb://media-service
+          predicates:
+            - Path=/api/media/**
+
         - id: frontend
           uri: lb://frontend
           predicates:
