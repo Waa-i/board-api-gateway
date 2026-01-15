@@ -7,36 +7,38 @@ spring:
 
   cloud:
     gateway:
-      routes:
-        - id: auth-service
-          uri: lb://auth-service
-          predicates:
-            - Path=/auth/**
+      server:
+        webflux:
+          routes:
+            - id: auth-service
+              uri: lb://auth-service
+              predicates:
+                - Path=/auth/**
 
-        - id: member-service
-          uri: lb://member-service
-          predicates:
-            - Path=/api/members/**
+            - id: member-service
+              uri: lb://member-service
+              predicates:
+                - Path=/api/members/**
 
-        - id: post-service
-          uri: lb://post-service
-          predicates:
-            - Path=/api/posts/**
+            - id: post-service
+              uri: lb://post-service
+              predicates:
+                - Path=/api/posts/**
 
-        - id: search-service
-          uri: lb://search-service
-          predicates:
-            - Path=/api/search/**
+            - id: search-service
+              uri: lb://search-service
+              predicates:
+                - Path=/api/search/**
 
-        - id: media-service
-          uri: lb://media-service
-          predicates:
-            - Path=/api/media/**
+            - id: media-service
+              uri: lb://media-service
+              predicates:
+                - Path=/api/media/**
 
-        - id: frontend
-          uri: lb://frontend
-          predicates:
-            - Path=/**
+            - id: frontend
+              uri: lb://frontend
+              predicates:
+                - Path=/**
 
   data:
     redis:
