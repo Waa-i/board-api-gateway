@@ -26,8 +26,8 @@ public class LoggingGlobalFilter implements GlobalFilter, Ordered {
                     var status = response.getStatusCode();
                     long elapsedTime = System.currentTimeMillis() - start;
 
-                    log.info("[Response] - Path: [{}], Status: [{}], Time: [{}], Signal: [{}]",
-                            exchange.getRequest().getPath(), status != null ? status.value() : "null" , elapsedTime, signalType);
+                    log.info("[Response] - ID: [{}], Path: [{}], Status: [{}], Time: [{}ms], Signal: [{}]",
+                            request.getId(), request.getPath(), status != null ? status.value() : "null" , elapsedTime, signalType);
                 });
     }
 
